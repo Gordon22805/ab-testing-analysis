@@ -16,3 +16,4 @@ data/raw/
 data/raw*
 results/figures/*.png.bak
 docs/superpowers/
+.github/workflows/
