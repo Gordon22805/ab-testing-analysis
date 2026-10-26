@@ -1,10 +1,5 @@
 # Анализ A/B-теста: кнопка «Купить сейчас» в мобильном приложении
 
-[![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
-![pandas](https://img.shields.io/badge/pandas-3.0-150458)
-![tests](https://img.shields.io/badge/tests-94%20passed-brightgreen)
-
-
 Эксперимент с кнопкой на карточке товара в мобильном приложении интернет-магазина: изменило ли
 изменение CTA вероятность покупки и стоит ли выкатывать новую версию на всех пользователей.
 
