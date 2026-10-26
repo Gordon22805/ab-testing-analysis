@@ -1,0 +1,411 @@
+{
+  "meta": {
+    "seed": 42,
+    "n_users_requested": 30000,
+    "rows_raw": 30000,
+    "rows_clean": 30000,
+    "rows_dropped": 0,
+    "experiment_start": "2026-09-01",
+    "experiment_days": 21,
+    "alpha": 0.05
+  },
+  "data_quality": [
+    {
+      "check": "user_in_both_groups",
+      "issues_found": 0,
+      "action": "none",
+      "detail": "users in both groups: 0"
+    },
+    {
+      "check": "duplicate_user_id",
+      "issues_found": 0,
+      "action": "none",
+      "detail": "duplicated user_id: 0"
+    },
+    {
+      "check": "missing_required_fields",
+      "issues_found": 0,
+      "action": "none",
+      "detail": "rows with missing required fields: 0"
+    },
+    {
+      "check": "invalid_experiment_group",
+      "issues_found": 0,
+      "action": "none",
+      "detail": "rows with invalid experiment_group: 0"
+    },
+    {
+      "check": "unknown_categories",
+      "issues_found": 0,
+      "action": "none",
+      "detail": "rows with unknown device/source/visitor_type/country: 0"
+    },
+    {
+      "check": "negative_revenue",
+      "issues_found": 0,
+      "action": "none",
+      "detail": "rows with negative revenue: 0"
+    },
+    {
+      "check": "funnel_order",
+      "issues_found": 0,
+      "action": "none",
+      "detail": "rows violating funnel order: 0"
+    },
+    {
+      "check": "revenue_vs_purchased",
+      "issues_found": 0,
+      "action": "none",
+      "detail": "rows where revenue and purchased disagree: 0"
+    },
+    {
+      "check": "session_date_window",
+      "issues_found": 0,
+      "action": "none",
+      "detail": "rows outside the experiment window or with invalid date: 0"
+    }
+  ],
+  "groups": [
+    {
+      "experiment_group": "control",
+      "users": 14921,
+      "viewers": 14304,
+      "add_to_cart_users": 3174,
+      "purchasers": 1275,
+      "revenue": 3459430.11,
+      "avg_session_duration": 298.49896119563033,
+      "conversion_rate": 0.08545003686080022,
+      "view_rate": 0.958648884123048,
+      "add_to_cart_rate": 0.21272032705582736,
+      "purchase_rate": 0.4017013232514178,
+      "revenue_per_user": 231.84974934655853,
+      "revenue_per_purchaser": 2713.278517647059
+    },
+    {
+      "experiment_group": "treatment",
+      "users": 15079,
+      "viewers": 14451,
+      "add_to_cart_users": 3126,
+      "purchasers": 1409,
+      "revenue": 3805478.92,
+      "avg_session_duration": 296.513230320313,
+      "conversion_rate": 0.09344120962928576,
+      "view_rate": 0.9583526759068903,
+      "add_to_cart_rate": 0.20730817693481,
+      "purchase_rate": 0.4507357645553423,
+      "revenue_per_user": 252.36944890244712,
+      "revenue_per_purchaser": 2700.836706884315
+    }
+  ],
+  "funnel": [
+    {
+      "step": "users",
+      "control": 14921,
+      "treatment": 15079,
+      "control_pct": 1.0,
+      "treatment_pct": 1.0
+    },
+    {
+      "step": "viewed",
+      "control": 14304,
+      "treatment": 14451,
+      "control_pct": 0.958648884123048,
+      "treatment_pct": 0.9583526759068903
+    },
+    {
+      "step": "added_to_cart",
+      "control": 3174,
+      "treatment": 3126,
+      "control_pct": 0.21272032705582736,
+      "treatment_pct": 0.20730817693481
+    },
+    {
+      "step": "purchased",
+      "control": 1275,
+      "treatment": 1409,
+      "control_pct": 0.08545003686080022,
+      "treatment_pct": 0.09344120962928576
+    }
+  ],
+  "primary_test": {
+    "n_control": 14921,
+    "n_treatment": 15079,
+    "conversions_control": 1275,
+    "conversions_treatment": 1409,
+    "cr_control": 0.08545003686080022,
+    "cr_treatment": 0.09344120962928576,
+    "abs_diff": 0.007991172768485544,
+    "rel_lift_pct": 9.351865794397867,
+    "z_stat": 2.4246919776574307,
+    "p_value": 0.015321380160162199,
+    "se_pooled": 0.003295747600982316,
+    "se_unpooled": 0.0032947254478599163,
+    "ci_low": 0.0015336295517325077,
+    "ci_high": 0.014448715985238579,
+    "alpha": 0.05,
+    "significant": true,
+    "direction": "increase"
+  },
+  "srm": {
+    "n_control": 14921,
+    "n_treatment": 15079,
+    "observed_ratio": 0.4973666666666667,
+    "expected_ratio": 0.5,
+    "chi2": 0.8321333333333333,
+    "p_value": 0.36165637797402184,
+    "srm_detected": false,
+    "window": "01.09.2026 — 21.09.2026, 21 дней эксперимента, все строки вне окна удалены.",
+    "conclusion": "Эксперимент корректен: SRM не обнаружен, сегменты сбалансированы, контаминации пользователей нет. Результаты можно интерпретировать."
+  },
+  "randomization": [
+    {
+      "column": "device",
+      "chi2": 5.64769659497681,
+      "dof": 2,
+      "p_value": 0.05937700210762825,
+      "balanced": true
+    },
+    {
+      "column": "traffic_source",
+      "chi2": 2.700044700534881,
+      "dof": 4,
+      "p_value": 0.6092067905201461,
+      "balanced": true
+    },
+    {
+      "column": "visitor_type",
+      "chi2": 0.025133736046207767,
+      "dof": 1,
+      "p_value": 0.8740342746632317,
+      "balanced": true
+    }
+  ],
+  "segments": {
+    "device": {
+      "table": [
+        {
+          "segment": "desktop",
+          "users_control": 3822,
+          "users_treatment": 3982,
+          "cr_control": 0.08241758241758242,
+          "cr_treatment": 0.08990457056755399,
+          "abs_diff": 0.007486988149971577,
+          "rel_lift_pct": 9.08421228863218,
+          "p_value": 0.23886829745396643,
+          "ci_low": -0.004960656759807433,
+          "ci_high": 0.019934633059750587,
+          "significant": false
+        },
+        {
+          "segment": "mobile",
+          "users_control": 10224,
+          "users_treatment": 10149,
+          "cr_control": 0.08744131455399061,
+          "cr_treatment": 0.09626564193516603,
+          "abs_diff": 0.008824327381175417,
+          "rel_lift_pct": 10.091713998337525,
+          "p_value": 0.02920970288062374,
+          "ci_low": 0.000892684719186132,
+          "ci_high": 0.016755970043164703,
+          "significant": true
+        },
+        {
+          "segment": "tablet",
+          "users_control": 875,
+          "users_treatment": 948,
+          "cr_control": 0.07542857142857143,
+          "cr_treatment": 0.07805907172995781,
+          "abs_diff": 0.002630500301386382,
+          "rel_lift_pct": 3.487405702595582,
+          "p_value": 0.833095145511206,
+          "ci_low": -0.02181922972116799,
+          "ci_high": 0.027080230323940753,
+          "significant": false
+        }
+      ],
+      "dropped": []
+    },
+    "traffic_source": {
+      "table": [
+        {
+          "segment": "email",
+          "users_control": 1717,
+          "users_treatment": 1792,
+          "cr_control": 0.10017472335468841,
+          "cr_treatment": 0.12444196428571429,
+          "abs_diff": 0.024267240931025877,
+          "rel_lift_pct": 24.224914348006646,
+          "p_value": 0.02299183581395489,
+          "ci_low": 0.003404915573131856,
+          "ci_high": 0.0451295662889199,
+          "significant": true
+        },
+        {
+          "segment": "organic",
+          "users_control": 5021,
+          "users_treatment": 5098,
+          "cr_control": 0.09161521609241187,
+          "cr_treatment": 0.0959199686151432,
+          "abs_diff": 0.0043047525227313255,
+          "rel_lift_pct": 4.698730960137823,
+          "p_value": 0.45768319698103965,
+          "ci_low": -0.007053779103372626,
+          "ci_high": 0.015663284148835277,
+          "significant": false
+        },
+        {
+          "segment": "paid_search",
+          "users_control": 4213,
+          "users_treatment": 4286,
+          "cr_control": 0.09185853311179681,
+          "cr_treatment": 0.09612692487167522,
+          "abs_diff": 0.004268391759878407,
+          "rel_lift_pct": 4.646701417149283,
+          "p_value": 0.500221174856398,
+          "ci_low": -0.008138802660240186,
+          "ci_high": 0.016675586179997,
+          "significant": false
+        },
+        {
+          "segment": "referral",
+          "users_control": 1216,
+          "users_treatment": 1211,
+          "cr_control": 0.07401315789473684,
+          "cr_treatment": 0.08257638315441784,
+          "abs_diff": 0.008563225259681007,
+          "rel_lift_pct": 11.56986879530234,
+          "p_value": 0.432314023632703,
+          "ci_low": -0.012810181191333814,
+          "ci_high": 0.029936631710695827,
+          "significant": false
+        },
+        {
+          "segment": "social",
+          "users_control": 2754,
+          "users_treatment": 2692,
+          "cr_control": 0.06027596223674655,
+          "cr_treatment": 0.0687221396731055,
+          "abs_diff": 0.008446177436358955,
+          "rel_lift_pct": 14.012513650441303,
+          "p_value": 0.20440850732090798,
+          "ci_low": -0.004605090174245648,
+          "ci_high": 0.02149744504696356,
+          "significant": false
+        }
+      ],
+      "dropped": []
+    },
+    "visitor_type": {
+      "table": [
+        {
+          "segment": "new",
+          "users_control": 9291,
+          "users_treatment": 9376,
+          "cr_control": 0.062210741577871057,
+          "cr_treatment": 0.06580631399317406,
+          "abs_diff": 0.0035955724153030055,
+          "rel_lift_pct": 5.7796649326263365,
+          "p_value": 0.31565010513013914,
+          "ci_low": -0.0034264562915388343,
+          "ci_high": 0.010617601122144845,
+          "significant": false
+        },
+        {
+          "segment": "returning",
+          "users_control": 5630,
+          "users_treatment": 5703,
+          "cr_control": 0.12380106571936057,
+          "cr_treatment": 0.13887427669647553,
+          "abs_diff": 0.015073210977114962,
+          "rel_lift_pct": 12.175348321543362,
+          "p_value": 0.01755224196503614,
+          "ci_low": 0.0026407102811775735,
+          "ci_high": 0.027505711673052352,
+          "significant": true
+        }
+      ],
+      "dropped": []
+    }
+  },
+  "limited_metrics": {
+    "add_to_cart": {
+      "n_control": 14921,
+      "n_treatment": 15079,
+      "conversions_control": 3174,
+      "conversions_treatment": 3126,
+      "cr_control": 0.21272032705582736,
+      "cr_treatment": 0.20730817693481,
+      "abs_diff": -0.005412150121017367,
+      "rel_lift_pct": -2.544256205283558,
+      "z_stat": -1.1507242089291614,
+      "p_value": 0.24984571370712683,
+      "se_pooled": 0.004703255635904102,
+      "se_unpooled": 0.004703386169465522,
+      "ci_low": -0.014630617618553594,
+      "ci_high": 0.0038063173765188595,
+      "alpha": 0.05,
+      "significant": false,
+      "direction": "none"
+    },
+    "purchase_rate": {
+      "n_control": 3174,
+      "n_treatment": 3126,
+      "conversions_control": 1275,
+      "conversions_treatment": 1409,
+      "cr_control": 0.4017013232514178,
+      "cr_treatment": 0.4507357645553423,
+      "abs_diff": 0.049034441303924536,
+      "rel_lift_pct": 12.206691505776979,
+      "z_stat": 3.9351744287514805,
+      "p_value": 8.313629399615908e-05,
+      "se_pooled": 0.01246055090866246,
+      "se_unpooled": 0.012446633536311133,
+      "ci_low": 0.024639487843986306,
+      "ci_high": 0.07342939476386276,
+      "alpha": 0.05,
+      "significant": true,
+      "direction": "increase"
+    },
+    "rpu_diff": 20.519699555888593,
+    "rpp_diff": -12.441810762743899
+  },
+  "planning": {
+    "observed_cr_control": 0.08545003686080022,
+    "required_n_per_arm_for_10pct": 17558,
+    "required_n_per_arm_for_5pct": 68722,
+    "mde_pct": 10.611272342799715
+  },
+  "business_impact": {
+    "n_target": 10000,
+    "aov_control": 2713.278517647059,
+    "aov_treatment": 2700.836706884315,
+    "rpu_control": 231.84974934655853,
+    "rpu_treatment": 252.36944890244712,
+    "extra_purchases_per_user": 0.007991172768485544,
+    "extra_revenue_per_user": 21.58285274418011,
+    "extra_purchases": 79.91172768485544,
+    "extra_revenue": 215828.5274418011,
+    "extra_purchases_ci_low": 15.336295517325077,
+    "extra_purchases_ci_high": 144.4871598523858,
+    "extra_revenue_ci_low": 41420.82988081694,
+    "extra_revenue_ci_high": 390236.2250027852,
+    "aov_ci_low": 2700.836706884315,
+    "aov_ci_high": 2713.278517647059,
+    "rel_lift_pct": 9.351865794397867,
+    "p_value": 0.015321380160162199,
+    "significant": true
+  },
+  "decision": "roll_out",
+  "figures": [
+    "results/figures/01_group_sizes.png",
+    "results/figures/02_conversion.png",
+    "results/figures/03_funnel.png",
+    "results/figures/04_confidence_interval.png",
+    "results/figures/05_segments_device.png",
+    "results/figures/05_segments_traffic_source.png",
+    "results/figures/05_segments_visitor_type.png",
+    "results/figures/06_dynamics.png",
+    "results/figures/07_revenue_impact.png",
+    "results/figures/08_revenue_distribution.png"
+  ]
+}
